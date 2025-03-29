@@ -187,40 +187,45 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Enter Birth Details:</h1>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          labelText="Date"
-          type="date"
-          min="1900-01-01"
-          max="2025-01-01"
-          onChange={handleInputChange("date")}
-        />
-        <FormInput
-          labelText="Time"
-          type="time"
-          onChange={handleInputChange("time")}
-        />
-        <FormInput
-          labelText="Location"
-          placeholder="City, Country"
-          onChange={handleInputChange("location")}
-          isLocation={true}
-        />
-        <FormInput
-          labelText="Current Location"
-          placeholder="City, Country"
-          onChange={handleInputChange("currentLocation")}
-          isLocation={true}
-        />
-        <FormInput
-          labelText="Email Address"
-          type="email"
-          placeholder="youremail@example.com"
-          onChange={handleInputChange("email")}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="form-container">
+        <h1>Enter Birth Details:</h1>
+        <div className="input-group">
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              labelText="Date"
+              type="date"
+              min="1900-01-01"
+              max="2025-01-01"
+              onChange={handleInputChange("date")}
+            />
+            <FormInput
+              labelText="Time"
+              type="time"
+              onChange={handleInputChange("time")}
+            />
+            <FormInput
+              labelText="Location"
+              placeholder="City, Country"
+              onChange={handleInputChange("location")}
+              isLocation={true}
+            />
+            <FormInput
+              labelText="Current Location"
+              placeholder="City, Country"
+              onChange={handleInputChange("currentLocation")}
+              isLocation={true}
+            />
+            <FormInput
+              labelText="Email Address"
+              type="email"
+              placeholder="youremail@example.com"
+              onChange={handleInputChange("email")}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
       <button onClick={handleDebugClick}>Debug Global State</button>
       {isLoading && (
         <div className="loading-overlay">
@@ -229,9 +234,8 @@ export default function App() {
             src="https://cdn.dribbble.com/users/719101/screenshots/3087499/media/a65570383f509b6586373dab2c4168e0.gif"
             alt="Loading"
           />
-        </div>
+          </div>
       )}
-
       {kundliSvg && (
         <div
           className="kundli-svg-container"
@@ -246,7 +250,6 @@ export default function App() {
       <div className="dasha-table-container">
         {dashaData && <DashaTable dashaData={dashaData} />}
       </div>
-
       {panchangaData && (
         <div className="panchanga-table-container">
           <PanchangaTable panchangaData={panchangaData} />
